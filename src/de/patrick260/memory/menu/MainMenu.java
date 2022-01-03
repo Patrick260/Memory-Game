@@ -1,5 +1,7 @@
 package de.patrick260.memory.menu;
 
+import de.patrick260.memory.game.Game;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -39,7 +41,12 @@ public class MainMenu extends JPanel {
         play_button.setText("Play");
         play_button.setForeground(Color.black);
 
-        play_button.addActionListener(event -> System.out.println("Play"));
+        play_button.addActionListener(event -> {
+
+            setVisible(false);
+            getParent().add(new Game(WIDTH, HEIGHT, BACKGROUND_COLOR));
+
+        });
 
         add(play_button);
 
