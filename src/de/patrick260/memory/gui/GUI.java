@@ -7,10 +7,10 @@ import java.awt.*;
 
 public class GUI extends JFrame {
 
-    public final int WIDTH = 500;
-    public final int HEIGHT = 500;
+    private final int WIDTH = 500;
+    private final int HEIGHT = 500;
 
-    public final Color BACKGROUND_COLOR = Color.orange;
+    private final Color BACKGROUND_COLOR = Color.orange;
 
 
     public GUI() {
