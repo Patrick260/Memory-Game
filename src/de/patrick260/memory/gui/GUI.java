@@ -10,6 +10,8 @@ public class GUI extends JFrame {
     public final int WIDTH = 500;
     public final int HEIGHT = 500;
 
+    public final Color BACKGROUND_COLOR = Color.orange;
+
 
     public GUI() {
 
@@ -18,7 +20,7 @@ public class GUI extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
 
-        add(new MainMenu(WIDTH, HEIGHT, Color.DARK_GRAY));
+        add(new MainMenu(WIDTH, HEIGHT, BACKGROUND_COLOR));
 
         pack();
 
