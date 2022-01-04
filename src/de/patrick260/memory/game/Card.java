@@ -25,11 +25,13 @@ import java.awt.*;
 public class Card extends JButton {
 
     private final int ID;
+    private final int PAIR_ID;
 
 
-    public Card(int width, int height, Color color, int id) {
+    public Card(int width, int height, Color color, int id, int pairId) {
 
         this.ID = id;
+        this.PAIR_ID = pairId;
 
         setSize(new Dimension(width, height));
 

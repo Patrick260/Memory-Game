@@ -56,7 +56,16 @@ public class Game extends JPanel {
 
         for (int i = 0; i < cards.length; i++) {
 
-            cards[i] = new Card(CARD_WIDTH, CARD_HEIGHT, CARD_COLOR, i);
+            if (i % 2 == 0) {
+
+                cards[i] = new Card(CARD_WIDTH, CARD_HEIGHT, CARD_COLOR, i, i + 1);
+
+            } else {
+
+                cards[i] = new Card(CARD_WIDTH, CARD_HEIGHT, CARD_COLOR, i, i - 1);
+
+            }
+
             add(cards[i]);
 
         }
