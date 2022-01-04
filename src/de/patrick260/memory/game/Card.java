@@ -24,28 +24,11 @@ import java.awt.*;
 
 public class Card extends JButton {
 
-    private final int WIDTH;
-    private final int HEIGHT;
-
-    private final Color COLOR;
-
-    private int x;
-    private int y;
-
-
     public Card(int x, int y, int width, int height, Color color) {
-
-        this.WIDTH = width;
-        this.HEIGHT = height;
-
-        this.x = x;
-        this.y = y;
 
         setBounds(x, y, width, height);
 
-        this.COLOR = color;
-
-        setBackground(COLOR);
+        setBackground(color);
 
         setModel(new FixedStateButtonModel());
         setBorderPainted(false);
