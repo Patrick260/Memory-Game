@@ -18,6 +18,7 @@
 package de.patrick260.memory.menu;
 
 import de.patrick260.memory.game.Game;
+import de.patrick260.memory.gui.FixedStateButtonModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -55,6 +56,7 @@ public class MainMenu extends JPanel {
 
         play_button.setBounds((WIDTH - BUTTON_WIDTH) / 2, (HEIGHT - BUTTON_HEIGHT) / 2 - (BUTTON_HEIGHT + GAP_BETWEEN_BUTTONS) / 2, BUTTON_WIDTH, BUTTON_HEIGHT);
         play_button.setBackground(BUTTON_COLOR);
+        play_button.setModel(new FixedStateButtonModel());
         play_button.setText("Play");
         play_button.setForeground(Color.black);
 
@@ -71,6 +73,7 @@ public class MainMenu extends JPanel {
 
         exit_button.setBounds((WIDTH - BUTTON_WIDTH) / 2, (HEIGHT - BUTTON_HEIGHT) / 2 + (BUTTON_HEIGHT + GAP_BETWEEN_BUTTONS) / 2, BUTTON_WIDTH, BUTTON_HEIGHT);
         exit_button.setBackground(BUTTON_COLOR);
+        exit_button.setModel(new FixedStateButtonModel());
         exit_button.setText("Exit");
         exit_button.setForeground(Color.black);
 
