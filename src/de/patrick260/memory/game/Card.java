@@ -24,9 +24,9 @@ import java.awt.*;
 
 public class Card extends JButton {
 
-    public Card(int x, int y, int width, int height, Color color) {
+    public Card(int width, int height, Color color) {
 
-        setBounds(x, y, width, height);
+        setSize(new Dimension(width, height));
 
         setBackground(color);
 
