@@ -48,6 +48,7 @@ public class Card extends JButton {
         setBackground(COLOR);
 
         setModel(new FixedStateButtonModel());
+        setBorderPainted(false);
 
     }
 
