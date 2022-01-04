@@ -25,8 +25,6 @@ public class Game extends JPanel {
     private final int WIDTH;
     private final int HEIGHT;
 
-    private final Color BACKGROUND_COLOR;
-
 
     public Game(int width, int height, Color background_color) {
 
@@ -38,9 +36,7 @@ public class Game extends JPanel {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setFocusable(true);
 
-        this.BACKGROUND_COLOR = background_color;
-
-        setBackground(BACKGROUND_COLOR);
+        setBackground(background_color);
 
     }
 
