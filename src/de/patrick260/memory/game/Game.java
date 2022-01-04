@@ -19,11 +19,27 @@ package de.patrick260.memory.game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashSet;
 
 public class Game extends JPanel {
 
     private final int WIDTH;
     private final int HEIGHT;
+
+    private final int CARD_WIDTH = 100;
+    private final int CARD_HEIGHT = 100;
+
+    private final int CARD_BASE_X = 10;
+    private final int CARD_BASE_Y = 10;
+    private final int GAP_BETWEEN_CARDS = 10;
+
+    private final Color CARD_COLOR = Color.GRAY;
+
+    private final int CARD_AMOUNT = 16;
+
+    private Card[] cards = new Card[CARD_AMOUNT];
+
+    private Card[][] game_field = new Card[4][4];
 
 
     public Game(int width, int height, Color background_color) {
@@ -37,6 +53,43 @@ public class Game extends JPanel {
         setFocusable(true);
 
         setBackground(background_color);
+
+        for (int i = 0; i < cards.length; i++) {
+
+            cards[i] = new Card(CARD_WIDTH, CARD_HEIGHT, CARD_COLOR, i);
+            add(cards[i]);
+
+        }
+
+        mixCards();
+
+    }
+
+    public void mixCards() {
+
+        HashSet<Integer> alreadyAddedIDs = new HashSet<>();
+
+        for (int i = 0; i < game_field.length; i++) {
+
+            for (int j = 0; j < game_field[i].length; j++) {
+
+                int random = (int) (Math.random() * CARD_AMOUNT);
+
+                if (!alreadyAddedIDs.contains(random)) {
+
+                    game_field[i][j] = cards[random];
+                    cards[random].setLocation(CARD_BASE_X + ((CARD_WIDTH + GAP_BETWEEN_CARDS) * i), CARD_BASE_Y + ((CARD_HEIGHT + GAP_BETWEEN_CARDS) * j));
+                    alreadyAddedIDs.add(random);
+
+                } else {
+
+                    j--;
+
+                }
+
+            }
+
+        }
 
     }
 

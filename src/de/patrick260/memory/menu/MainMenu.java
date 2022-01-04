@@ -62,8 +62,10 @@ public class MainMenu extends JPanel {
 
         play_button.addActionListener(event -> {
 
+            Game game;
+
             setVisible(false);
-            getParent().add(new Game(WIDTH, HEIGHT, BACKGROUND_COLOR));
+            getParent().add((game = new Game(WIDTH, HEIGHT, BACKGROUND_COLOR)));
 
         });
 
