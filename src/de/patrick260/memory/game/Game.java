@@ -208,7 +208,7 @@ public class Game extends JPanel {
 
                         play_time_timer.stop();
 
-                        getParent().add(new WinScreen());
+                        getParent().add(new WinScreen("Your playtime: " + new SimpleDateFormat("mm:ss").format(play_time)));
 
                         setVisible(false);
                         getParent().remove(this);

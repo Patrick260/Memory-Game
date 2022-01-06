@@ -33,7 +33,7 @@ public class WinScreen extends JPanel {
     private static final String WIN_TEXT = "You won!";
 
     private static final int WIN_TEXT_WIDTH = 600;
-    private static final int WIN_TEXT_HEIGHT = 150;
+    private static final int WIN_TEXT_HEIGHT = 100;
 
     private static final int WIN_TEXT_Y = 100;
 
@@ -42,6 +42,17 @@ public class WinScreen extends JPanel {
     private static final int WIN_TEXT_SIZE = 100;
 
     private static final Color WIN_TEXT_COLOR = Color.YELLOW;
+
+    private static final int PLAY_TIME_TEXT_WIDTH = 300;
+    private static final int PLAY_TIME_TEXT_HEIGHT = 50;
+
+    private static final int PLAY_TIME_TEXT_Y = WIN_TEXT_Y + PLAY_TIME_TEXT_HEIGHT * 2;
+
+    private static final String PLAY_TIME_TEXT_FONT = null;
+    private static final int PLAY_TIME_TEXT_STYLE = Font.BOLD;
+    private static final int PLAY_TIME_TEXT_SIZE = 25;
+
+    private static final Color PLAY_TIME_TEXT_COLOR = Color.BLACK;
 
     private static final int BUTTON_WIDTH = 200;
     private static final int BUTTON_HEIGHT = 75;
@@ -57,7 +68,7 @@ public class WinScreen extends JPanel {
     private static final Color BUTTON_COLOR = Color.DARK_GRAY;
 
 
-    public WinScreen() {
+    public WinScreen(String played_time) {
 
         setLayout(null);
 
@@ -68,6 +79,7 @@ public class WinScreen extends JPanel {
         JTextField win_text = new JTextField(WIN_TEXT);
 
         win_text.setEditable(false);
+        win_text.setFocusable(false);
         win_text.setForeground(WIN_TEXT_COLOR);
         win_text.setBackground(BACKGROUND_COLOR);
         win_text.setBorder(null);
@@ -76,6 +88,19 @@ public class WinScreen extends JPanel {
         win_text.setBounds((WIDTH - WIN_TEXT_WIDTH) / 2, WIN_TEXT_Y, WIN_TEXT_WIDTH, WIN_TEXT_HEIGHT);
 
         add(win_text);
+
+        JTextField play_time_text = new JTextField(played_time);
+
+        play_time_text.setEditable(false);
+        play_time_text.setFocusable(false);
+        play_time_text.setForeground(PLAY_TIME_TEXT_COLOR);
+        play_time_text.setBackground(BACKGROUND_COLOR);
+        play_time_text.setBorder(null);
+        play_time_text.setFont(new Font(PLAY_TIME_TEXT_FONT, PLAY_TIME_TEXT_STYLE, PLAY_TIME_TEXT_SIZE));
+        play_time_text.setHorizontalAlignment(JTextField.CENTER);
+        play_time_text.setBounds((WIDTH - PLAY_TIME_TEXT_WIDTH) / 2, PLAY_TIME_TEXT_Y, PLAY_TIME_TEXT_WIDTH, PLAY_TIME_TEXT_HEIGHT);
+
+        add(play_time_text);
 
         JButton play_again_button = new JButton();
 
