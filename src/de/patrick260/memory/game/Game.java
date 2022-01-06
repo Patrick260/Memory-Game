@@ -92,6 +92,7 @@ public class Game extends JPanel {
         JTextField play_time_text = new JTextField();
 
         play_time_text.setEditable(false);
+        play_time_text.setFocusable(false);
         play_time_text.setForeground(PLAY_TIME_TEXT_COLOR);
         play_time_text.setBackground(BACKGROUND_COLOR);
         play_time_text.setBorder(null);
