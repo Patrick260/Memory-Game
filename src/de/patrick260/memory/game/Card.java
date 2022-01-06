@@ -32,7 +32,7 @@ public class Card extends JButton {
     private final int pairID;
 
 
-    public Card(int id, int pairID) {
+    public Card(int id, int pairID, ImageIcon icon) {
 
         this.pairID = pairID;
 
@@ -49,7 +49,7 @@ public class Card extends JButton {
 
             if (!Game.getGame().blockCardSelecting) {
 
-                setText(id + "-" + pairID);
+                setIcon(icon);
 
                 Game.getGame().selectCard(id);
 

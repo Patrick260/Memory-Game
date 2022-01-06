@@ -22,6 +22,7 @@ import de.patrick260.memory.gui.GUI;
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashSet;
+import java.util.Scanner;
 
 public class Game extends JPanel {
 
@@ -51,6 +52,10 @@ public class Game extends JPanel {
 
     private final Card[] cards = new Card[CARD_AMOUNT];
 
+    private final String[] sets = {};
+
+    private final ImageIcon[] icons = new ImageIcon[CARD_AMOUNT / 2];
+
     private int selectedCard = Integer.MIN_VALUE;
 
     boolean blockCardSelecting;
@@ -64,15 +69,25 @@ public class Game extends JPanel {
 
         setBackground(BACKGROUND_COLOR);
 
+        loadIcons();
+        initCards();
+
+        mixCards();
+
+    }
+
+
+    private void initCards() {
+
         for (int i = 0; i < cards.length; i++) {
 
             if (i % 2 == 0) {
 
-                cards[i] = new Card(i, i + 1);
+                cards[i] = new Card(i, i + 1, icons[i / 2]);
 
             } else {
 
-                cards[i] = new Card(i, i - 1);
+                cards[i] = new Card(i, i - 1, icons[i / 2]);
 
             }
 
@@ -80,10 +95,24 @@ public class Game extends JPanel {
 
         }
 
-        mixCards();
-
     }
 
+    private void loadIcons() {
+
+        int random = (int) (Math.random() * sets.length);
+
+        Scanner scanner = new Scanner(getClass().getResourceAsStream("/Sets/" + sets[random] + "/set.txt"));
+
+        int i = 0;
+        while (scanner.hasNext()) {
+
+            icons[i] = new ImageIcon(getClass().getResource("/Sets/alphabet/" + scanner.nextLine()));
+
+            i++;
+
+        }
+
+    }
 
     private void mixCards() {
 
@@ -131,8 +160,8 @@ public class Game extends JPanel {
 
                 } else {
 
-                    cards[selectedCard].setText("");
-                    cards[id].setText("");
+                    cards[selectedCard].setIcon(null);
+                    cards[id].setIcon(null);
 
                 }
 
