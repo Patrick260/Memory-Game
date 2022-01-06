@@ -24,8 +24,8 @@ import java.awt.*;
 
 public class GUI extends JFrame {
 
-    public static final int WIDTH = 900;
-    public static final int HEIGHT = 900;
+    public static final int WIDTH = 800;
+    public static final int HEIGHT = 800;
 
     public static final String TITLE = "Memory";
 
