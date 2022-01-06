@@ -22,6 +22,7 @@ import de.patrick260.memory.gui.WinScreen;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -49,6 +50,18 @@ public class Game extends JPanel {
 
     private static final int CARD_FLIP_DELAY = 1500;
 
+    private static final int PLAY_TIME_TEXT_WIDTH = 80;
+    private static final int PLAY_TIME_TEXT_HEIGHT = 50;
+    
+    private static final int PLAY_TIME_TEXT_X = WIDTH - PLAY_TIME_TEXT_WIDTH - 12;
+    private static final int PLAY_TIME_TEXT_Y = 12;
+
+    private static final String PLAY_TIME_TEXT_FONT = null;
+    private static final int PLAY_TIME_TEXT_STYLE = Font.BOLD;
+    private static final int PLAY_TIME_TEXT_SIZE = 25;
+
+    private static final Color PLAY_TIME_TEXT_COLOR = Color.BLACK;
+
     private static Game game;
 
     private final Card[] cards = new Card[CARD_AMOUNT];
@@ -61,6 +74,10 @@ public class Game extends JPanel {
 
     private int pairs_left = CARD_AMOUNT / 2;
 
+    private final Timer play_time_timer;
+
+    private int play_time = 0;
+
     boolean blockCardSelecting;
 
 
@@ -71,6 +88,30 @@ public class Game extends JPanel {
         setLayout(null);
 
         setBackground(BACKGROUND_COLOR);
+
+        JTextField play_time_text = new JTextField();
+
+        play_time_text.setEditable(false);
+        play_time_text.setForeground(PLAY_TIME_TEXT_COLOR);
+        play_time_text.setBackground(BACKGROUND_COLOR);
+        play_time_text.setBorder(null);
+        play_time_text.setFont(new Font(PLAY_TIME_TEXT_FONT, PLAY_TIME_TEXT_STYLE, PLAY_TIME_TEXT_SIZE));
+        play_time_text.setHorizontalAlignment(JTextField.CENTER);
+        play_time_text.setBounds(PLAY_TIME_TEXT_X, PLAY_TIME_TEXT_Y, PLAY_TIME_TEXT_WIDTH, PLAY_TIME_TEXT_HEIGHT);
+
+        add(play_time_text);
+
+        play_time_text.setText(new SimpleDateFormat("mm:ss").format(play_time));
+
+        play_time_timer = new Timer(1000, event -> {
+
+            play_time+=1000;
+
+            play_time_text.setText(new SimpleDateFormat("mm:ss").format(play_time));
+
+        });
+
+        play_time_timer.start();
 
         loadIcons();
         initCards();
@@ -164,6 +205,8 @@ public class Game extends JPanel {
                     pairs_left--;
 
                     if (pairs_left == 0) {
+
+                        play_time_timer.stop();
 
                         getParent().add(new WinScreen());
 
