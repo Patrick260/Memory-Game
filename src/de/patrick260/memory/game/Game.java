@@ -106,7 +106,7 @@ public class Game extends JPanel {
         int i = 0;
         while (scanner.hasNext()) {
 
-            icons[i] = new ImageIcon(getClass().getResource("/Sets/alphabet/" + scanner.nextLine()));
+            icons[i] = new ImageIcon(getClass().getResource("/Sets/" + sets[random] + "/" + scanner.nextLine()));
 
             i++;
 
