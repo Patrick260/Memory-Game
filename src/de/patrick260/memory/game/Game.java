@@ -115,7 +115,7 @@ public class Game extends JPanel {
 
     public void selectCard(int id) {
 
-        if (selectedCard != Integer.MIN_VALUE) {
+        if (selectedCard != Integer.MIN_VALUE && selectedCard != id) {
 
             blockCardSelecting = true;
 
