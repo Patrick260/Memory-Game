@@ -18,6 +18,7 @@
 package de.patrick260.memory.game;
 
 import de.patrick260.memory.gui.GUI;
+import de.patrick260.memory.gui.WinScreen;
 
 import javax.swing.*;
 import java.awt.*;
@@ -57,6 +58,8 @@ public class Game extends JPanel {
     private final ImageIcon[] icons = new ImageIcon[CARD_AMOUNT / 2];
 
     private int selectedCard = Integer.MIN_VALUE;
+
+    private int pairs_left = CARD_AMOUNT / 2;
 
     boolean blockCardSelecting;
 
@@ -157,6 +160,17 @@ public class Game extends JPanel {
 
                     remove(cards[selectedCard]);
                     remove(cards[id]);
+
+                    pairs_left--;
+
+                    if (pairs_left == 0) {
+
+                        getParent().add(new WinScreen());
+
+                        setVisible(false);
+                        getParent().remove(this);
+
+                    }
 
                 } else {
 
