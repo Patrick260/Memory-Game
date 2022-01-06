@@ -35,10 +35,10 @@ public class Game extends JPanel {
 
     static final Color CARD_COLOR = Color.DARK_GRAY;
 
-    private static final int CARD_AMOUNT = 16;
+    private static final int CARD_AMOUNT = 36;
 
-    private static final int CARD_AMOUNT_X = 4;
-    private static final int CARD_AMOUNT_Y = 4;
+    private static final int CARD_AMOUNT_X = 6;
+    private static final int CARD_AMOUNT_Y = 6;
 
     private static final int GAP_BETWEEN_CARDS = 10;
 
