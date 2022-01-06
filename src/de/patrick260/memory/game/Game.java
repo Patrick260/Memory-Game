@@ -52,7 +52,7 @@ public class Game extends JPanel {
 
     private final Card[] cards = new Card[CARD_AMOUNT];
 
-    private final String[] sets = {};
+    private final String[] sets = {"alphabet"};
 
     private final ImageIcon[] icons = new ImageIcon[CARD_AMOUNT / 2];
 
