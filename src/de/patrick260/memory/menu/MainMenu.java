@@ -19,38 +19,64 @@ package de.patrick260.memory.menu;
 
 import de.patrick260.memory.game.Game;
 import de.patrick260.memory.gui.FixedStateButtonModel;
+import de.patrick260.memory.gui.GUI;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MainMenu extends JPanel {
 
-    private final int WIDTH;
-    private final int HEIGHT;
+    private static final int WIDTH = GUI.WIDTH;
+    private static final int HEIGHT = GUI.HEIGHT;
 
-    private final Color BACKGROUND_COLOR;
+    private static final Color BACKGROUND_COLOR = GUI.BACKGROUND_COLOR;
 
-    private final int BUTTON_WIDTH = 150;
-    private final int BUTTON_HEIGHT = 50;
+    private static final String TITLE = GUI.TITLE;
 
-    private final int GAP_BETWEEN_BUTTONS = 10;
+    private static final int TITLE_WIDTH = 500;
+    private static final int TITLE_HEIGHT = 150;
 
-    private final Color BUTTON_COLOR = Color.DARK_GRAY;
+    private static final int TITLE_Y = 100;
+
+    private static final String TITLE_FONT = null;
+    private static final int TITLE_STYLE = Font.BOLD;
+    private static final int TITLE_SIZE = 100;
+
+    private static final Color TITLE_COLOR = Color.BLACK;
+
+    private static final int BUTTON_WIDTH = 200;
+    private static final int BUTTON_HEIGHT = 75;
+
+    private static final int GAP_BETWEEN_BUTTONS = 10;
+
+    private static final String BUTTON_FONT = null;
+    private static final int BUTTON_STYLE = Font.BOLD;
+    private static final int BUTTON_TEXT_SIZE = 25;
+
+    private static final Color BUTTON_TEXT_COLOR = Color.BLACK;
+
+    private static final Color BUTTON_COLOR = Color.DARK_GRAY;
 
 
-    public MainMenu(int width, int height, Color background_color) {
+    public MainMenu() {
 
         setLayout(null);
 
-        this.WIDTH = width;
-        this.HEIGHT = height;
-
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        setFocusable(true);
-
-        this.BACKGROUND_COLOR = background_color;
 
         setBackground(BACKGROUND_COLOR);
+
+        JTextField title = new JTextField(TITLE);
+
+        title.setEditable(false);
+        title.setForeground(TITLE_COLOR);
+        title.setBackground(BACKGROUND_COLOR);
+        title.setBorder(null);
+        title.setFont(new Font(TITLE_FONT, TITLE_STYLE, TITLE_SIZE));
+        title.setHorizontalAlignment(JTextField.CENTER);
+        title.setBounds((WIDTH - TITLE_WIDTH) / 2, TITLE_Y, TITLE_WIDTH, TITLE_HEIGHT);
+
+        add(title);
 
         JButton play_button = new JButton();
 
@@ -58,14 +84,16 @@ public class MainMenu extends JPanel {
         play_button.setBackground(BUTTON_COLOR);
         play_button.setModel(new FixedStateButtonModel());
         play_button.setText("Play");
-        play_button.setForeground(Color.black);
+        play_button.setFont(new Font(BUTTON_FONT, BUTTON_STYLE, BUTTON_TEXT_SIZE));
+        play_button.setForeground(BUTTON_TEXT_COLOR);
+        play_button.setFocusPainted(false);
 
         play_button.addActionListener(event -> {
 
-            Game game;
+            getParent().add(new Game());
 
             setVisible(false);
-            getParent().add((game = new Game(WIDTH, HEIGHT, BACKGROUND_COLOR)));
+            getParent().remove(this);
 
         });
 
@@ -77,7 +105,9 @@ public class MainMenu extends JPanel {
         exit_button.setBackground(BUTTON_COLOR);
         exit_button.setModel(new FixedStateButtonModel());
         exit_button.setText("Exit");
-        exit_button.setForeground(Color.black);
+        exit_button.setFont(new Font(BUTTON_FONT, BUTTON_STYLE, BUTTON_TEXT_SIZE));
+        exit_button.setForeground(BUTTON_TEXT_COLOR);
+        exit_button.setFocusPainted(false);
 
         exit_button.addActionListener(event -> System.exit(0));
 

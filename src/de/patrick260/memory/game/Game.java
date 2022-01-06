@@ -17,52 +17,62 @@
 
 package de.patrick260.memory.game;
 
+import de.patrick260.memory.gui.GUI;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashSet;
 
 public class Game extends JPanel {
 
-    private final int WIDTH;
-    private final int HEIGHT;
+    private static final int WIDTH = GUI.WIDTH;
+    private static final int HEIGHT = GUI.HEIGHT;
 
-    private final int CARD_WIDTH = 100;
-    private final int CARD_HEIGHT = 100;
+    private static final Color BACKGROUND_COLOR = GUI.BACKGROUND_COLOR;
 
-    private final int CARD_BASE_X = 10;
-    private final int CARD_BASE_Y = 10;
-    private final int GAP_BETWEEN_CARDS = 10;
+    static final int CARD_WIDTH = 100;
+    static final int CARD_HEIGHT = 100;
 
-    private final Color CARD_COLOR = Color.GRAY;
+    static final Color CARD_COLOR = Color.DARK_GRAY;
 
-    private final int CARD_AMOUNT = 16;
+    private static final int CARD_AMOUNT = 16;
 
-    private Card[] cards = new Card[CARD_AMOUNT];
+    private static final int CARD_AMOUNT_X = 4;
+    private static final int CARD_AMOUNT_Y = 4;
 
-    private Card[][] game_field = new Card[4][4];
+    private static final int GAP_BETWEEN_CARDS = 10;
+
+    private static final int CARD_BASE_X = (WIDTH - (CARD_WIDTH * CARD_AMOUNT_X + GAP_BETWEEN_CARDS * (CARD_AMOUNT_X - 1))) / 2;
+    private static final int CARD_BASE_Y = (HEIGHT - (CARD_HEIGHT * CARD_AMOUNT_Y + GAP_BETWEEN_CARDS * (CARD_AMOUNT_Y - 1))) / 2;
+
+    private static final int CARD_FLIP_DELAY = 1500;
+
+    private static Game game;
+
+    private final Card[] cards = new Card[CARD_AMOUNT];
+
+    private int selectedCard = Integer.MIN_VALUE;
+
+    boolean blockCardSelecting;
 
 
-    public Game(int width, int height, Color background_color) {
+    public Game() {
+
+        game = this;
 
         setLayout(null);
 
-        this.WIDTH = width;
-        this.HEIGHT = height;
-
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        setFocusable(true);
-
-        setBackground(background_color);
+        setBackground(BACKGROUND_COLOR);
 
         for (int i = 0; i < cards.length; i++) {
 
             if (i % 2 == 0) {
 
-                cards[i] = new Card(CARD_WIDTH, CARD_HEIGHT, CARD_COLOR, i, i + 1);
+                cards[i] = new Card(i, i + 1);
 
             } else {
 
-                cards[i] = new Card(CARD_WIDTH, CARD_HEIGHT, CARD_COLOR, i, i - 1);
+                cards[i] = new Card(i, i - 1);
 
             }
 
@@ -74,20 +84,21 @@ public class Game extends JPanel {
 
     }
 
-    public void mixCards() {
+
+    private void mixCards() {
 
         HashSet<Integer> alreadyAddedIDs = new HashSet<>();
 
-        for (int i = 0; i < game_field.length; i++) {
+        for (int i = 0; i < CARD_AMOUNT_X; i++) {
 
-            for (int j = 0; j < game_field[i].length; j++) {
+            for (int j = 0; j < CARD_AMOUNT_Y; j++) {
 
                 int random = (int) (Math.random() * CARD_AMOUNT);
 
                 if (!alreadyAddedIDs.contains(random)) {
 
-                    game_field[i][j] = cards[random];
                     cards[random].setLocation(CARD_BASE_X + ((CARD_WIDTH + GAP_BETWEEN_CARDS) * i), CARD_BASE_Y + ((CARD_HEIGHT + GAP_BETWEEN_CARDS) * j));
+
                     alreadyAddedIDs.add(random);
 
                 } else {
@@ -99,6 +110,53 @@ public class Game extends JPanel {
             }
 
         }
+
+    }
+
+    public void selectCard(int id) {
+
+        if (selectedCard != Integer.MIN_VALUE) {
+
+            blockCardSelecting = true;
+
+            Timer timer = new Timer(CARD_FLIP_DELAY, event -> {
+
+                if (selectedCard == cards[id].getPairID()) {
+
+                    cards[selectedCard].setVisible(false);
+                    cards[id].setVisible(false);
+
+                    remove(cards[selectedCard]);
+                    remove(cards[id]);
+
+                } else {
+
+                    cards[selectedCard].setText("");
+                    cards[id].setText("");
+
+                }
+
+                selectedCard = Integer.MIN_VALUE;
+
+                blockCardSelecting = false;
+
+            });
+
+            timer.setRepeats(false);
+            timer.start();
+
+        } else {
+
+            selectedCard = id;
+
+        }
+
+    }
+
+
+    public static Game getGame() {
+
+        return game;
 
     }
 

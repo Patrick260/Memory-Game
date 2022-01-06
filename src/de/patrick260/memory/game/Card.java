@@ -24,21 +24,45 @@ import java.awt.*;
 
 public class Card extends JButton {
 
-    private final int ID;
-    private final int PAIR_ID;
+    private static final int WIDTH = Game.CARD_WIDTH;
+    private static final int HEIGHT = Game.CARD_HEIGHT;
+
+    private static final Color BACKGROUND_COLOR = Game.CARD_COLOR;
+
+    private final int pairID;
 
 
-    public Card(int width, int height, Color color, int id, int pairId) {
+    public Card(int id, int pairID) {
 
-        this.ID = id;
-        this.PAIR_ID = pairId;
+        this.pairID = pairID;
 
-        setSize(new Dimension(width, height));
+        setSize(new Dimension(WIDTH, HEIGHT));
 
-        setBackground(color);
+        setBackground(BACKGROUND_COLOR);
 
         setModel(new FixedStateButtonModel());
+
         setBorderPainted(false);
+        setFocusPainted(false);
+
+        addActionListener(event -> {
+
+            if (!Game.getGame().blockCardSelecting) {
+
+                setText(id + "-" + pairID);
+
+                Game.getGame().selectCard(id);
+
+            }
+
+        });
+
+    }
+
+
+    public int getPairID() {
+
+        return pairID;
 
     }
 

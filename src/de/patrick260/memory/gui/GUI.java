@@ -24,22 +24,25 @@ import java.awt.*;
 
 public class GUI extends JFrame {
 
-    private final int WIDTH = 500;
-    private final int HEIGHT = 500;
+    public static final int WIDTH = 900;
+    public static final int HEIGHT = 900;
 
-    private final Color BACKGROUND_COLOR = Color.orange;
+    public static final String TITLE = "Memory";
+
+    public static final Color BACKGROUND_COLOR = new Color(129, 129, 129);
 
 
     public GUI() {
 
-        setTitle("Memory");
+        setTitle(TITLE);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-        setLocationRelativeTo(null);
 
-        add(new MainMenu(WIDTH, HEIGHT, BACKGROUND_COLOR));
+        add(new MainMenu());
 
         pack();
+
+        setLocationRelativeTo(null);
 
     }
 
