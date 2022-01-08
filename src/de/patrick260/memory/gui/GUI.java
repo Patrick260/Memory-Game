@@ -22,7 +22,7 @@ import de.patrick260.memory.menu.MainMenu;
 import javax.swing.*;
 import java.awt.*;
 
-public class GUI extends JFrame {
+public final class GUI extends JFrame {
 
     public static final int WIDTH = 800;
     public static final int HEIGHT = 800;

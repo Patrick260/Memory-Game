@@ -26,7 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class Game extends JPanel {
+public final class Game extends JPanel {
 
     private static final int WIDTH = GUI.WIDTH;
     private static final int HEIGHT = GUI.HEIGHT;
@@ -89,7 +89,7 @@ public class Game extends JPanel {
 
         setBackground(BACKGROUND_COLOR);
 
-        JTextField play_time_text = new JTextField();
+        final JTextField play_time_text = new JTextField();
 
         play_time_text.setEditable(false);
         play_time_text.setFocusable(false);
@@ -144,9 +144,9 @@ public class Game extends JPanel {
 
     private void loadIcons() {
 
-        int random = (int) (Math.random() * sets.length);
+        final int random = (int) (Math.random() * sets.length);
 
-        Scanner scanner = new Scanner(getClass().getResourceAsStream("/Sets/" + sets[random] + "/set.txt"));
+        final Scanner scanner = new Scanner(getClass().getResourceAsStream("/Sets/" + sets[random] + "/set.txt"));
 
         int i = 0;
         while (scanner.hasNext()) {
@@ -161,13 +161,13 @@ public class Game extends JPanel {
 
     private void mixCards() {
 
-        HashSet<Integer> alreadyAddedIDs = new HashSet<>();
+        final HashSet<Integer> alreadyAddedIDs = new HashSet<>();
 
         for (int i = 0; i < CARD_AMOUNT_X; i++) {
 
             for (int j = 0; j < CARD_AMOUNT_Y; j++) {
 
-                int random = (int) (Math.random() * CARD_AMOUNT);
+                final int random = (int) (Math.random() * CARD_AMOUNT);
 
                 if (!alreadyAddedIDs.contains(random)) {
 
@@ -187,13 +187,13 @@ public class Game extends JPanel {
 
     }
 
-    public void selectCard(int id) {
+    public void selectCard(final int id) {
 
         if (selectedCard != Integer.MIN_VALUE && selectedCard != id) {
 
             blockCardSelecting = true;
 
-            Timer timer = new Timer(CARD_FLIP_DELAY, event -> {
+            final Timer timer = new Timer(CARD_FLIP_DELAY, event -> {
 
                 if (selectedCard == cards[id].getPairID()) {
 

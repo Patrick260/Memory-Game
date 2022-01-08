@@ -22,7 +22,7 @@ import de.patrick260.memory.gui.FixedStateButtonModel;
 import javax.swing.*;
 import java.awt.*;
 
-public class Card extends JButton {
+public final class Card extends JButton {
 
     private static final int WIDTH = Game.CARD_WIDTH;
     private static final int HEIGHT = Game.CARD_HEIGHT;
@@ -32,7 +32,7 @@ public class Card extends JButton {
     private final int pairID;
 
 
-    public Card(int id, int pairID, ImageIcon icon) {
+    public Card(final int id, final int pairID, final ImageIcon icon) {
 
         this.pairID = pairID;
 

@@ -23,7 +23,7 @@ import de.patrick260.memory.menu.MainMenu;
 import javax.swing.*;
 import java.awt.*;
 
-public class WinScreen extends JPanel {
+public final class WinScreen extends JPanel {
 
     private static final int WIDTH = GUI.WIDTH;
     private static final int HEIGHT = GUI.HEIGHT;
@@ -68,7 +68,7 @@ public class WinScreen extends JPanel {
     private static final Color BUTTON_COLOR = Color.DARK_GRAY;
 
 
-    public WinScreen(String played_time) {
+    public WinScreen(final String played_time) {
 
         setLayout(null);
 
@@ -76,7 +76,7 @@ public class WinScreen extends JPanel {
 
         setBackground(BACKGROUND_COLOR);
 
-        JTextField win_text = new JTextField(WIN_TEXT);
+        final JTextField win_text = new JTextField(WIN_TEXT);
 
         win_text.setEditable(false);
         win_text.setFocusable(false);
@@ -89,7 +89,7 @@ public class WinScreen extends JPanel {
 
         add(win_text);
 
-        JTextField play_time_text = new JTextField(played_time);
+        final JTextField play_time_text = new JTextField(played_time);
 
         play_time_text.setEditable(false);
         play_time_text.setFocusable(false);
@@ -102,7 +102,7 @@ public class WinScreen extends JPanel {
 
         add(play_time_text);
 
-        JButton play_again_button = new JButton();
+        final JButton play_again_button = new JButton();
 
         play_again_button.setBounds((WIDTH - BUTTON_WIDTH) / 2, (HEIGHT - BUTTON_HEIGHT) / 2 - (BUTTON_HEIGHT + GAP_BETWEEN_BUTTONS) / 2, BUTTON_WIDTH, BUTTON_HEIGHT);
         play_again_button.setBackground(BUTTON_COLOR);
@@ -123,7 +123,7 @@ public class WinScreen extends JPanel {
 
         add(play_again_button);
 
-        JButton menu_button = new JButton();
+        final JButton menu_button = new JButton();
 
         menu_button.setBounds((WIDTH - BUTTON_WIDTH) / 2, (HEIGHT - BUTTON_HEIGHT) / 2 + (BUTTON_HEIGHT + GAP_BETWEEN_BUTTONS) / 2, BUTTON_WIDTH, BUTTON_HEIGHT);
         menu_button.setBackground(BUTTON_COLOR);

@@ -19,7 +19,7 @@ package de.patrick260.memory.gui;
 
 import javax.swing.*;
 
-public class FixedStateButtonModel extends DefaultButtonModel {
+public final class FixedStateButtonModel extends DefaultButtonModel {
 
     @Override
     public boolean isPressed() {

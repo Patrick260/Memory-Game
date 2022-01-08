@@ -21,9 +21,9 @@ import de.patrick260.memory.gui.GUI;
 
 import java.awt.*;
 
-public class Memory {
+public final class Memory {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         EventQueue.invokeLater(() -> new GUI().setVisible(true));
 
