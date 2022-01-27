@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
 
     <name>Memory-Game</name>
-    <description>A simple memory game written in Java. </description>
+    <description>A simple memory game written in Java.</description>
     <url>patrick260.itch.io/memory-game</url>
     <inceptionYear>2022</inceptionYear>
 
