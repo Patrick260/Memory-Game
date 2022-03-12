@@ -72,11 +72,11 @@ public final class Game extends JPanel {
 
     private int selectedCard = Integer.MIN_VALUE;
 
-    private int pairs_left = CARD_AMOUNT / 2;
+    private int pairsLeft = CARD_AMOUNT / 2;
 
-    private final Timer play_time_timer;
+    private final Timer playTimeTimer;
 
-    private int play_time = 0;
+    private int playTime = 0;
 
     boolean blockCardSelecting;
 
@@ -89,30 +89,30 @@ public final class Game extends JPanel {
 
         setBackground(BACKGROUND_COLOR);
 
-        final JTextField play_time_text = new JTextField();
+        final JTextField playTimeText = new JTextField();
 
-        play_time_text.setEditable(false);
-        play_time_text.setFocusable(false);
-        play_time_text.setForeground(PLAY_TIME_TEXT_COLOR);
-        play_time_text.setBackground(BACKGROUND_COLOR);
-        play_time_text.setBorder(null);
-        play_time_text.setFont(new Font(PLAY_TIME_TEXT_FONT, PLAY_TIME_TEXT_STYLE, PLAY_TIME_TEXT_SIZE));
-        play_time_text.setHorizontalAlignment(JTextField.CENTER);
-        play_time_text.setBounds(PLAY_TIME_TEXT_X, PLAY_TIME_TEXT_Y, PLAY_TIME_TEXT_WIDTH, PLAY_TIME_TEXT_HEIGHT);
+        playTimeText.setEditable(false);
+        playTimeText.setFocusable(false);
+        playTimeText.setForeground(PLAY_TIME_TEXT_COLOR);
+        playTimeText.setBackground(BACKGROUND_COLOR);
+        playTimeText.setBorder(null);
+        playTimeText.setFont(new Font(PLAY_TIME_TEXT_FONT, PLAY_TIME_TEXT_STYLE, PLAY_TIME_TEXT_SIZE));
+        playTimeText.setHorizontalAlignment(JTextField.CENTER);
+        playTimeText.setBounds(PLAY_TIME_TEXT_X, PLAY_TIME_TEXT_Y, PLAY_TIME_TEXT_WIDTH, PLAY_TIME_TEXT_HEIGHT);
 
-        add(play_time_text);
+        add(playTimeText);
 
-        play_time_text.setText(new SimpleDateFormat("mm:ss").format(play_time));
+        playTimeText.setText(new SimpleDateFormat("mm:ss").format(playTime));
 
-        play_time_timer = new Timer(1000, event -> {
+        playTimeTimer = new Timer(1000, event -> {
 
-            play_time+=1000;
+            playTime+=1000;
 
-            play_time_text.setText(new SimpleDateFormat("mm:ss").format(play_time));
+            playTimeText.setText(new SimpleDateFormat("mm:ss").format(playTime));
 
         });
 
-        play_time_timer.start();
+        playTimeTimer.start();
 
         loadIcons();
         initCards();
@@ -203,13 +203,13 @@ public final class Game extends JPanel {
                     remove(cards[selectedCard]);
                     remove(cards[id]);
 
-                    pairs_left--;
+                    pairsLeft--;
 
-                    if (pairs_left == 0) {
+                    if (pairsLeft == 0) {
 
-                        play_time_timer.stop();
+                        playTimeTimer.stop();
 
-                        getParent().add(new WinScreen("Your playtime: " + new SimpleDateFormat("mm:ss").format(play_time)));
+                        getParent().add(new WinScreen("Your playtime: " + new SimpleDateFormat("mm:ss").format(playTime)));
 
                         setVisible(false);
                         getParent().remove(this);
