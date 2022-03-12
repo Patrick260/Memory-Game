@@ -195,7 +195,7 @@ public final class Game extends JPanel {
 
             final Timer timer = new Timer(CARD_FLIP_DELAY, event -> {
 
-                if (selectedCard == cards[id].getPairID()) {
+                if (selectedCard == cards[id].getPairId()) {
 
                     cards[selectedCard].setVisible(false);
                     cards[id].setVisible(false);
