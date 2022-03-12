@@ -29,12 +29,12 @@ public final class Card extends JButton {
 
     private static final Color BACKGROUND_COLOR = Game.CARD_COLOR;
 
-    private final int pairID;
+    private final int pairId;
 
 
-    public Card(final int id, final int pairID, final ImageIcon icon) {
+    public Card(final int id, final int pairId, final ImageIcon icon) {
 
-        this.pairID = pairID;
+        this.pairId = pairId;
 
         setSize(new Dimension(WIDTH, HEIGHT));
 
@@ -60,9 +60,9 @@ public final class Card extends JButton {
     }
 
 
-    public int getPairID() {
+    public int getPairId() {
 
-        return pairID;
+        return pairId;
 
     }
 
