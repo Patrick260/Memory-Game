@@ -76,43 +76,43 @@ public final class WinScreen extends JPanel {
 
         setBackground(BACKGROUND_COLOR);
 
-        final JTextField win_text = new JTextField(WIN_TEXT);
+        final JTextField winText = new JTextField(WIN_TEXT);
 
-        win_text.setEditable(false);
-        win_text.setFocusable(false);
-        win_text.setForeground(WIN_TEXT_COLOR);
-        win_text.setBackground(BACKGROUND_COLOR);
-        win_text.setBorder(null);
-        win_text.setFont(new Font(WIN_TEXT_FONT, WIN_TEXT_STYLE, WIN_TEXT_SIZE));
-        win_text.setHorizontalAlignment(JTextField.CENTER);
-        win_text.setBounds((WIDTH - WIN_TEXT_WIDTH) / 2, WIN_TEXT_Y, WIN_TEXT_WIDTH, WIN_TEXT_HEIGHT);
+        winText.setEditable(false);
+        winText.setFocusable(false);
+        winText.setForeground(WIN_TEXT_COLOR);
+        winText.setBackground(BACKGROUND_COLOR);
+        winText.setBorder(null);
+        winText.setFont(new Font(WIN_TEXT_FONT, WIN_TEXT_STYLE, WIN_TEXT_SIZE));
+        winText.setHorizontalAlignment(JTextField.CENTER);
+        winText.setBounds((WIDTH - WIN_TEXT_WIDTH) / 2, WIN_TEXT_Y, WIN_TEXT_WIDTH, WIN_TEXT_HEIGHT);
 
-        add(win_text);
+        add(winText);
 
-        final JTextField play_time_text = new JTextField(played_time);
+        final JTextField playTimeText = new JTextField(played_time);
 
-        play_time_text.setEditable(false);
-        play_time_text.setFocusable(false);
-        play_time_text.setForeground(PLAY_TIME_TEXT_COLOR);
-        play_time_text.setBackground(BACKGROUND_COLOR);
-        play_time_text.setBorder(null);
-        play_time_text.setFont(new Font(PLAY_TIME_TEXT_FONT, PLAY_TIME_TEXT_STYLE, PLAY_TIME_TEXT_SIZE));
-        play_time_text.setHorizontalAlignment(JTextField.CENTER);
-        play_time_text.setBounds((WIDTH - PLAY_TIME_TEXT_WIDTH) / 2, PLAY_TIME_TEXT_Y, PLAY_TIME_TEXT_WIDTH, PLAY_TIME_TEXT_HEIGHT);
+        playTimeText.setEditable(false);
+        playTimeText.setFocusable(false);
+        playTimeText.setForeground(PLAY_TIME_TEXT_COLOR);
+        playTimeText.setBackground(BACKGROUND_COLOR);
+        playTimeText.setBorder(null);
+        playTimeText.setFont(new Font(PLAY_TIME_TEXT_FONT, PLAY_TIME_TEXT_STYLE, PLAY_TIME_TEXT_SIZE));
+        playTimeText.setHorizontalAlignment(JTextField.CENTER);
+        playTimeText.setBounds((WIDTH - PLAY_TIME_TEXT_WIDTH) / 2, PLAY_TIME_TEXT_Y, PLAY_TIME_TEXT_WIDTH, PLAY_TIME_TEXT_HEIGHT);
 
-        add(play_time_text);
+        add(playTimeText);
 
-        final JButton play_again_button = new JButton();
+        final JButton playAgainButton = new JButton();
 
-        play_again_button.setBounds((WIDTH - BUTTON_WIDTH) / 2, (HEIGHT - BUTTON_HEIGHT) / 2 - (BUTTON_HEIGHT + GAP_BETWEEN_BUTTONS) / 2, BUTTON_WIDTH, BUTTON_HEIGHT);
-        play_again_button.setBackground(BUTTON_COLOR);
-        play_again_button.setModel(new FixedStateButtonModel());
-        play_again_button.setText("Play again");
-        play_again_button.setFont(new Font(BUTTON_FONT, BUTTON_STYLE, BUTTON_TEXT_SIZE));
-        play_again_button.setForeground(BUTTON_TEXT_COLOR);
-        play_again_button.setFocusPainted(false);
+        playAgainButton.setBounds((WIDTH - BUTTON_WIDTH) / 2, (HEIGHT - BUTTON_HEIGHT) / 2 - (BUTTON_HEIGHT + GAP_BETWEEN_BUTTONS) / 2, BUTTON_WIDTH, BUTTON_HEIGHT);
+        playAgainButton.setBackground(BUTTON_COLOR);
+        playAgainButton.setModel(new FixedStateButtonModel());
+        playAgainButton.setText("Play again");
+        playAgainButton.setFont(new Font(BUTTON_FONT, BUTTON_STYLE, BUTTON_TEXT_SIZE));
+        playAgainButton.setForeground(BUTTON_TEXT_COLOR);
+        playAgainButton.setFocusPainted(false);
 
-        play_again_button.addActionListener(event -> {
+        playAgainButton.addActionListener(event -> {
 
             getParent().add(new Game());
 
@@ -121,19 +121,19 @@ public final class WinScreen extends JPanel {
 
         });
 
-        add(play_again_button);
+        add(playAgainButton);
 
-        final JButton menu_button = new JButton();
+        final JButton menuButton = new JButton();
 
-        menu_button.setBounds((WIDTH - BUTTON_WIDTH) / 2, (HEIGHT - BUTTON_HEIGHT) / 2 + (BUTTON_HEIGHT + GAP_BETWEEN_BUTTONS) / 2, BUTTON_WIDTH, BUTTON_HEIGHT);
-        menu_button.setBackground(BUTTON_COLOR);
-        menu_button.setModel(new FixedStateButtonModel());
-        menu_button.setText("Menu");
-        menu_button.setFont(new Font(BUTTON_FONT, BUTTON_STYLE, BUTTON_TEXT_SIZE));
-        menu_button.setForeground(BUTTON_TEXT_COLOR);
-        menu_button.setFocusPainted(false);
+        menuButton.setBounds((WIDTH - BUTTON_WIDTH) / 2, (HEIGHT - BUTTON_HEIGHT) / 2 + (BUTTON_HEIGHT + GAP_BETWEEN_BUTTONS) / 2, BUTTON_WIDTH, BUTTON_HEIGHT);
+        menuButton.setBackground(BUTTON_COLOR);
+        menuButton.setModel(new FixedStateButtonModel());
+        menuButton.setText("Menu");
+        menuButton.setFont(new Font(BUTTON_FONT, BUTTON_STYLE, BUTTON_TEXT_SIZE));
+        menuButton.setForeground(BUTTON_TEXT_COLOR);
+        menuButton.setFocusPainted(false);
 
-        menu_button.addActionListener(event -> {
+        menuButton.addActionListener(event -> {
 
             getParent().add(new MainMenu());
 
@@ -142,7 +142,7 @@ public final class WinScreen extends JPanel {
 
         });
 
-        add(menu_button);
+        add(menuButton);
 
     }
 
