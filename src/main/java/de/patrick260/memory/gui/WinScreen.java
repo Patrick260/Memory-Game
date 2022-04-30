@@ -76,6 +76,15 @@ public final class WinScreen extends JPanel {
 
         setBackground(BACKGROUND_COLOR);
 
+        add(buildWinText());
+        add(buildPlayTimeText(played_time));
+        add(buildPlayAgainButton());
+        add(buildMenuButton());
+
+    }
+
+    private JTextField buildWinText() {
+
         final JTextField winText = new JTextField(WIN_TEXT);
 
         winText.setEditable(false);
@@ -87,7 +96,11 @@ public final class WinScreen extends JPanel {
         winText.setHorizontalAlignment(JTextField.CENTER);
         winText.setBounds((WIDTH - WIN_TEXT_WIDTH) / 2, WIN_TEXT_Y, WIN_TEXT_WIDTH, WIN_TEXT_HEIGHT);
 
-        add(winText);
+        return winText;
+
+    }
+
+    private JTextField buildPlayTimeText(final String played_time) {
 
         final JTextField playTimeText = new JTextField(played_time);
 
@@ -100,7 +113,11 @@ public final class WinScreen extends JPanel {
         playTimeText.setHorizontalAlignment(JTextField.CENTER);
         playTimeText.setBounds((WIDTH - PLAY_TIME_TEXT_WIDTH) / 2, PLAY_TIME_TEXT_Y, PLAY_TIME_TEXT_WIDTH, PLAY_TIME_TEXT_HEIGHT);
 
-        add(playTimeText);
+        return playTimeText;
+
+    }
+
+    private JButton buildPlayAgainButton() {
 
         final JButton playAgainButton = new JButton();
 
@@ -121,7 +138,11 @@ public final class WinScreen extends JPanel {
 
         });
 
-        add(playAgainButton);
+        return playAgainButton;
+
+    }
+
+    private JButton buildMenuButton() {
 
         final JButton menuButton = new JButton();
 
@@ -142,7 +163,7 @@ public final class WinScreen extends JPanel {
 
         });
 
-        add(menuButton);
+        return menuButton;
 
     }
 
