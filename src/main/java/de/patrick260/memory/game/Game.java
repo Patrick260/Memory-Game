@@ -86,19 +86,9 @@ public final class Game extends JPanel {
         game = this;
 
         setLayout(null);
-
         setBackground(BACKGROUND_COLOR);
 
-        final JTextField playTimeText = new JTextField();
-
-        playTimeText.setEditable(false);
-        playTimeText.setFocusable(false);
-        playTimeText.setForeground(PLAY_TIME_TEXT_COLOR);
-        playTimeText.setBackground(BACKGROUND_COLOR);
-        playTimeText.setBorder(null);
-        playTimeText.setFont(new Font(PLAY_TIME_TEXT_FONT, PLAY_TIME_TEXT_STYLE, PLAY_TIME_TEXT_SIZE));
-        playTimeText.setHorizontalAlignment(JTextField.CENTER);
-        playTimeText.setBounds(PLAY_TIME_TEXT_X, PLAY_TIME_TEXT_Y, PLAY_TIME_TEXT_WIDTH, PLAY_TIME_TEXT_HEIGHT);
+        final JTextField playTimeText = buildPlayTimeText();
 
         add(playTimeText);
 
@@ -118,6 +108,24 @@ public final class Game extends JPanel {
         initCards();
 
         mixCards();
+
+    }
+
+
+    private JTextField buildPlayTimeText() {
+
+        final JTextField playTimeText = new JTextField();
+
+        playTimeText.setEditable(false);
+        playTimeText.setFocusable(false);
+        playTimeText.setForeground(PLAY_TIME_TEXT_COLOR);
+        playTimeText.setBackground(BACKGROUND_COLOR);
+        playTimeText.setBorder(null);
+        playTimeText.setFont(new Font(PLAY_TIME_TEXT_FONT, PLAY_TIME_TEXT_STYLE, PLAY_TIME_TEXT_SIZE));
+        playTimeText.setHorizontalAlignment(JTextField.CENTER);
+        playTimeText.setBounds(PLAY_TIME_TEXT_X, PLAY_TIME_TEXT_Y, PLAY_TIME_TEXT_WIDTH, PLAY_TIME_TEXT_HEIGHT);
+
+        return playTimeText;
 
     }
 
