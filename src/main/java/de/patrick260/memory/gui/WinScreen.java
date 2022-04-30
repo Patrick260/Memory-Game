@@ -83,6 +83,7 @@ public final class WinScreen extends JPanel {
 
     }
 
+
     private JTextField buildWinText() {
 
         final JTextField winText = new JTextField(WIN_TEXT);
