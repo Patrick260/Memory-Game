@@ -9,5 +9,5 @@ Download the latest release. Ensure that a compatible Java runtime is installed 
 ![Failed to load image](https://i.ibb.co/2gWPSss/game.png)
 ![Failed to load image](https://i.ibb.co/k8wrMJP/win.png)
 
-## Dev Information's
+## Dev information's
 JDK: adopt-openj9-16.0.2
