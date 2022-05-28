@@ -55,6 +55,12 @@ jobs:
         
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
+    
+    - name: Setup Java JDK
+      uses: actions/setup-java@v1.3.0
+      with:
+        java-version: 16
+        
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
 
@@ -66,7 +72,7 @@ jobs:
 
     #- run: |
     #   echo "Run, Build Application using script"
-    #   maven package
+    #   mvn package
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
