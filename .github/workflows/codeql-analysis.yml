@@ -59,8 +59,8 @@ jobs:
     - name: Setup Java JDK
       uses: actions/setup-java@v3.3.0
       with:
-        distribution: adopt-openj9
-        java-version: 16.0.2+7
+        distribution: adopt
+        java-version: 16
         
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
