@@ -1,10 +1,10 @@
 ## What's this?
 
-A simple memory game written in Java.
+A simple Memory-Game written in Java.
 
 ## How to play
 
-Download the latest release. Ensure that a compatible Java runtime is installed (optimal Java 16). Then start the game
+Download the latest release. Ensure that a compatible Java runtime is installed (optimal Java 17). Then start the game
 per command line with the command: java -jar Memory-Game.jar.
 
 ## Screenshots
