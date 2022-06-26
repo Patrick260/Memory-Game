@@ -1,6 +1,6 @@
 ## What's this?
 
-A simple Memory-Game written in Java.
+A Memory-Game written in Java.
 
 ## How to play
 
