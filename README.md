@@ -13,6 +13,6 @@ per command line with the command: java -jar Memory-Game.jar.
 ![Failed to load image](https://i.ibb.co/2gWPSss/game.png)
 ![Failed to load image](https://i.ibb.co/k8wrMJP/win.png)
 
-## Dev information's
+## Dev information
 
 JDK: Temurin-17.0.3+7
